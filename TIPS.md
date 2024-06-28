@@ -1,10 +1,8 @@
-### 1. Debouncing và Throttling trong React
+### 1. Debouncing trong React
 
 #### Mô tả
 
-Debouncing và Throttling là hai kỹ thuật quan trọng để kiểm soát tần suất gọi hàm trong ứng dụng React, đặc biệt là khi xử lý các sự kiện như scroll, resize, hoặc các tương tác người dùng khác.
-
-#### Debouncing
+Debouncing là hai kỹ thuật quan trọng để kiểm soát tần suất gọi hàm trong ứng dụng React, đặc biệt là khi xử lý các sự kiện như scroll, resize, hoặc các tương tác người dùng khác.
 
 ##### Ví dụ
 
@@ -79,7 +77,7 @@ const MemoizationComponent = () => {
 
 export default MemoizationComponent;
 ```
-### 3.Sử dụng Async/Await trong React
+### 3. Sử dụng Async/Await trong React
 
 #### Mô tả
 
@@ -203,3 +201,127 @@ const ErrorHandlingComponent = () => {
 
 export default ErrorHandlingComponent;
 ```
+### 6. Throttling trong React
+
+#### Mô tả
+
+Throttling là một kỹ thuật quan trọng trong React để giới hạn tần suất gọi hàm trong các tình huống như xử lý sự kiện scroll, resize hay các tương tác người dùng khác. Nó giúp giảm tải xử lý và tối ưu hóa hiệu suất của ứng dụng.
+
+#### Ví dụ
+
+```javascript
+import React, { useState, useEffect } from 'react';
+
+const ThrottlingComponent = () => {
+  const [scrollPosition, setScrollPosition] = useState(0);
+
+  const throttle = (func, limit) => {
+    let throttling = false;
+    return function (...args) {
+      if (!throttling) {
+        func.apply(this, args);
+        throttling = true;
+        setTimeout(() => {
+          throttling = false;
+        }, limit);
+      }
+    };
+  };
+
+  const handleScroll = () => {
+    setScrollPosition(window.scrollY);
+  };
+
+  const throttledScroll = throttle(handleScroll, 200); // Throttle limit: 200ms
+
+  useEffect(() => {
+    window.addEventListener('scroll', throttledScroll);
+    return () => {
+      window.removeEventListener('scroll', throttledScroll);
+    };
+  }, [throttledScroll]);
+
+  return (
+    <div style={{ height: '200vh' }}>
+      <p>Scroll Position: {scrollPosition}</p>
+    </div>
+  );
+};
+
+export default ThrottlingComponent;
+```
+### 7. Lazy Loading và Code Splitting trong React
+
+#### Mô tả
+
+Lazy Loading và Code Splitting là hai kỹ thuật quan trọng trong React để tối ưu hóa tải trang và cải thiện hiệu suất ứng dụng bằng cách tải các phần của ứng dụng chỉ khi chúng cần thiết.
+
+#### Lazy Loading
+
+##### Ví dụ
+
+```javascript
+import React, { lazy, Suspense } from 'react';
+
+const LazyComponent = lazy(() => import('./LazyComponent'));
+
+const App = () => (
+  <Suspense fallback={<div>Loading...</div>}>
+    <LazyComponent />
+  </Suspense>
+);
+
+export default App;
+```
+#### Code Splitting
+
+##### Ví dụ
+```javascript
+import React, { useState } from 'react';
+
+const CodeSplittingComponent = () => {
+  const [showComponent, setShowComponent] = useState(false);
+
+  const loadComponent = async () => {
+    const module = await import('./DynamicComponent');
+    // 'module' contains the exported module content
+    setShowComponent(true);
+  };
+
+  return (
+    <div>
+      <button onClick={loadComponent}>Load Dynamic Component</button>
+      {showComponent && <DynamicComponent />}
+    </div>
+  );
+};
+
+export default CodeSplittingComponent;
+```
+
+### 8. Virtualized Lists trong React
+
+#### Mô tả
+
+Virtualized Lists là một kỹ thuật để hiển thị danh sách lớn của các phần tử một cách hiệu quả trong React bằng cách chỉ render những phần tử nằm trong phạm vi khung nhìn của người dùng.
+
+#### Ví dụ sử dụng react-window
+
+```javascript
+import React from 'react';
+import { FixedSizeList } from 'react-window';
+
+// Component dùng để render từng hàng của danh sách
+const Row = ({ index, style }) => (
+  <div style={style}>
+    Row {index}
+  </div>
+);
+
+const VirtualizedListComponent = () => (
+  <FixedSizeList height={400} width={300} itemSize={50} itemCount={100}>
+    {Row}
+  </FixedSizeList>
+);
+
+export default VirtualizedListComponent;
