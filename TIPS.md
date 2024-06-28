@@ -158,10 +158,9 @@ const MemoizedComponent = () => {
     </div>
   );
 };
-
 export default MemoizedComponent;
-
-### Error Handling trong React
+```
+### 5. Error Handling trong React
 
 #### Mô tả
 
