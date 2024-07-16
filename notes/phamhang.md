@@ -8,8 +8,9 @@
     - Lợi ích của việc sử dụng Next.js là hỗ trợ SSR tích hợp để tăng hiệu suất và SEO. Với tất cả thông tin trên server, nó sẽ xử lý để generate ra thông tin HTML của trang. Sau đó Client có thể gửi một yêu cầu đến Server và nhận toàn bộ trang HTML thay vì yêu cầu từng thành phần riêng lẻ với Client Render.
 
 3. **Cách Next.js khác với Create React App?**
+## Table
  | Next.js | Crate React App |
- |-----|-----| 
+ |:-----|:-----| 
  | **Định nghĩa** | - Next.js là một framework React mã nguồn mở được sử dụng để phát triển các ứng dụng web chuyên nghiệp, đa trang và hiệu quả. 
 - Nó được xây dựng trên cơ sở của React và cung cấp nhiều tính năng như pre-rendering, server-side rendering (SSR), static site generation (SSG) và nhiều hơn nữa. Next.js là một giải pháp toàn diện cho việc phát triển ứng dụng web với React, giúp cho việc phát triển trở nên nhanh chóng và dễ dàng hơn. | Create React App là một công cụ mạnh mẽ được cung cấp bởi nhóm phát triển React để tạo ra các ứng dụng React một cách nhanh chóng và dễ dàng. Nó giúp đơn giản hóa việc cấu hình và thiết lập dự án React, giúp các lập trình viên tập trung vào việc phát triển ứng dụng thay vì tốn thời gian cấu hình.
 - Với Create React App, bạn có thể tạo ra các ứng dụng React một cách nhanh chóng và đơn giản chỉ trong vài phút. Bên cạnh đó, nó còn hỗ trợ các tính năng như tự động tải lại trang và triển khai ứng dụng của bạn lên môi trường sản xuất. |
@@ -65,7 +66,7 @@ Không hỗ trợ xuất các trang tĩnh một cách trực tiếp, tất cả 
 
 13. **Khác biệt giữa SSR và SSG là gì?**
 | SSG | SSR |
-|-----|-----|
+|:-----|:-----|
 | **Ưu điểm** | - Siêu nhanh ( cả về tốc độ develop lẫn tốc độ của trang web).
 - Tiết kiệm chi phí server vì ít dùng tài nguyên. | - Nội dung được cập nhật thường xuyên
 - Site load nhanh vì được render tại server trước khi gửi về cho client
