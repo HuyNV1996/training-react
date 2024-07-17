@@ -75,13 +75,18 @@
     - Static Site Generation (SSG) là một phương pháp trong phát triển web, trong đó các trang web được tạo ra trước (pre-rendered) và được lưu trữ dưới dạng các tệp HTML, CSS, và JavaScript tĩnh.
 
 13. **Khác biệt giữa SSR và SSG là gì?**
-    | | SSG | SSR |
+    | | SSG| SSR |
     |:-----|:-----|:-----|
     | **Ưu điểm** |- Siêu nhanh (cả về tốc độ develop lẫn tốc độ của trang web).<br> - Tiết kiệm chi phí server vì ít dùng tài nguyên.<br> | - Nội dung được cập nhật thường xuyên.<br> - Site load nhanh vì được render tại server trước khi gửi về cho client.<br> - Tối ưu SEO và trải nghiệm người dùng. |
     | **Nhược điểm**|- Website không linh động, nội dung sẽ trở nên lỗi thời nếu thay đổi quá thường xuyên vì là web tĩnh (có thể dùng Ajax để xử lý dữ liệu động nhưng nó sẽ không được cache cũng như không thân thiện SEO).<br> - Khả năng mở rộng không tốt vì mỗi lần cập nhật dữ liệu là phải qua quá trình build tốn khá nhiều thời gian.<br> - Thời gian build tăng lên dựa vào size của project. | - Không thể deploy đến một static hosting. Gọi API và render tại server. |
 
 14. **Incremental Static Regeneration (ISR) là gì?**
+    - Incremental Static Regeneration kết hợp các yếu tố của Server-Side Rendering (SSR) và Static Site Generation (SSG). Nó cho phép chúng ta tạo trước các trang tĩnh trong quá trình xây dựng, đồng thời định kỳ tái tạo lại các trang cụ thể với dữ liệu đã được cập nhật.
 15. **Khi nào nên sử dụng SSR thay vì SSG?**
+    - Nên sử dụng SSR thay vì SSG khi:
+        - Dữ liệu thay đổi thường xuyên
+        - Thời gian render lâu không quá quan trọng
+        - Động bộ cao
 16. **Làm thế nào để sử dụng getServerSideProps?**
 17. **Làm thế nào để sử dụng getStaticProps?**
 18. **Làm thế nào để sử dụng getStaticPaths?**
